@@ -4,6 +4,7 @@ import './App.css';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
