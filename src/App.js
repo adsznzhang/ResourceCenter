@@ -28,7 +28,7 @@ injectTapEventPlugin();NotFound
 
 
 class App extends Component {
-  return() {
+  render() {
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(fusTheme)}>
