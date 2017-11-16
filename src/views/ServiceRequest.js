@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
+import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
-
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  checkbox: {
+    marginBottom: 16,
+  },
+};
 
 
 class ServiceRequest extends Component {
@@ -118,8 +126,56 @@ class ServiceRequest extends Component {
           <div className='col s12 m6'>
                <DatePicker hintText="Portrait Dialog" />
           </div>
+                <div className='col s12 m6'>
+               <DatePicker hintText="Portrait Dialog" />
+          </div>
+
+          <div className="col s12 m6">
+                    <Checkbox
+          label="Simple" style={styles.checkbox}
+        />
+                <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />
+          </div>
+          <div className="col s12 m6">
+                    <Checkbox
+          label="Simple" style={styles.checkbox}
+        />
+                <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />        <Checkbox
+          label="Simple" style={styles.checkbox}
+        />
+          </div>
+
           <div className='col s12'>
             <RaisedButton label="Submit" primary={true} />
+                   <Checkbox
+          label="Simple" style={styles.checkbox}
+        />
           </div>
         </div>
       </div>
