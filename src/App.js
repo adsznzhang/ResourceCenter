@@ -7,9 +7,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 /* Material-UI */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import fusTheme from './fusTheme'
+import fusTheme from './components/fusTheme'
 
-import SideNav from './SideNav'
+import SideNav from './components/SideNav'
 
 /* Import Views */
 import Glossary from './views/Glossary'
