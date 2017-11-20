@@ -31,9 +31,35 @@ const styles = {
 class ServiceRequest extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      fileInput: []
-    }
+    this.singleLineFields = ['Name', 'Email', 'Phone', 'Department'];
+    this.multiLineFields = [
+      'Project Description',
+      'Project Goal',
+      'Project Budget',
+      'Key Messages',
+      'Primary Target Audience',
+      'Secondary Target Audience',
+      'Project Contact (if other than yourself)',
+      'Comments'
+    ]
+    this.leftCheckboxes = [
+      'Simple1',
+      'Simple2',
+      'Simple3',
+      'Simple4',
+      'Simple5',
+      'Simple6'
+    ]
+
+    this.rightCheckboxes = [
+      'Simple7',
+      'Simple8',
+      'Simple9',
+      'Simple10',
+      'Simple11',
+      'Simple12'
+    ]
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   handleFilePath = () => {
     let file = document.getElementById('upload').files;
@@ -51,6 +77,16 @@ class ServiceRequest extends Component {
       })
     }
   }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked: target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    })
+  }
+
     render() {
       let fileValue = this.state.fileInput || 'Selcet a file to upload'
       return (
@@ -63,22 +99,20 @@ class ServiceRequest extends Component {
         <div className='row'>
           <div className='col s12 m6'>
             <TextField
-      hintText="Hint Text"
-      floatingLabelText="Floating Label Text"
+      floatingLabelText="Name" name="name"
+              value={this.state.name} onChange={this.handleInputChange}
         fullWidth
     />
           </div>
           <div className='col s12 m6'>
             <TextField
-      hintText="Hint Text"
-      floatingLabelText="Floating Label Text"
+      floatingLabelText="Email" name="email"
               fullWidth
     />
           </div>
           <div className='col s12 m6'>
             <TextField
-      hintText="Hint Text"
-      floatingLabelText="Floating Label Text"
+      floatingLabelText="Phone" name="phone"
         fullWidth
     />
           </div>
@@ -238,7 +272,7 @@ class ServiceRequest extends Component {
               label={
                 <span>
                   I have read the{' '}
-                  <Link exact to='/planning-guide' style={{ fontWeight: 500 }}>
+                  <Link to='/planning-guide' style={{ fontWeight: 500 }}>
                     Planning Guide
                   </Link>
                 </span>
