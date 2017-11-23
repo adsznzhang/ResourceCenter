@@ -59,8 +59,35 @@ class ServiceRequest extends Component {
       'Simple11',
       'Simple12'
     ]
+    const stringProps = [
+      ...this.singleLineFields,
+      ...this.multiLineFields
+    ].reduce(
+      (acc, label) => ({
+        [this.formatLabelToProperty(label)]: '',
+        ...acc
+      }),
+      {}
+    )
+    const checkboxProps = [
+      ...this.leftCheckboxes,
+      ...this.rightCheckboxes
+    ].reduce(
+      (acc, label) => ({
+        [this.formatLabelToProperty(label)]: false,
+        ...acc
+      }),
+      {}
+    )
+    this.state = {
+      fileInput: null
+    }
+    Object.assign(this.state, stringProps, checkboxProps)
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+
+  formatLabelToProperty = label => label.split(' (')[0].toLowerCase().split(' ').join('-');
+
   handleFilePath = () => {
     let file = document.getElementById('upload').files;
     if(file.length === 0) {
