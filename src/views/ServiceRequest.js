@@ -115,203 +115,102 @@ class ServiceRequest extends Component {
   }
 
     render() {
-      let fileValue = this.state.fileInput || 'Selcet a file to upload'
+      const fileValue = this.state.fileInput || 'Select a file to upload'
+      const SingleLineField = (label, index) =>
+        <div className='col s12 m6' key={index}>
+          <TextField
+            floatingLabelText={label}
+            name={this.formatLabelToProperty(label)}
+            value={this.state[this.formatLabelToProperty(label)]}
+            onChange={this.handleInputChange}
+            fullWidth
+          />
+        </div>
+
+       const MultiLineField = (label, index) =>
+        <div className='col s12 m6' key={index}>
+          <TextField
+            floatingLabelText={label}
+            name={this.formatLabelToProperty(label)}
+            value={this.state[this.formatLabelToProperty(label)]}
+            onChange={this.handleInputChange}
+            multiLine
+            rows={2}
+            fullWidth
+          />
+        </div>
+
+      const CheckboxField = (label, index) =>
+        <Checkbox
+          label={label}
+          name={this.formatLabelToProperty(label)}
+          key={index}
+          onClick={this.handleInputChange}
+          style={styles.checkbox}
+        />
+
       return (
         <div className='container'>
-        <div className='row'>
-          <div className='col s12 flow-text'>
-            <h2>Plesde use this from to request Service.</h2>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col s12 m6'>
-            <TextField
-      floatingLabelText="Name" name="name"
-              value={this.state.name} onChange={this.handleInputChange}
-        fullWidth
-    />
-          </div>
-          <div className='col s12 m6'>
-            <TextField
-      floatingLabelText="Email" name="email"
-              fullWidth
-    />
-          </div>
-          <div className='col s12 m6'>
-            <TextField
-      floatingLabelText="Phone" name="phone"
-        fullWidth
-    />
-          </div>
-          <div className='col s12 m6'>
-            <TextField
-      hintText="Hint Text"
-      floatingLabelText="Floating Label Text"
-              fullWidth
-    />
-          </div>
-          <div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-          <div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-<div className='col s12 m6 '>
-            <TextField
-      hintText="Message Field"
-      floatingLabelText="MultiLine and FloatingLabel"
-              fullWidth
-      multiLine={true}
-      rows={2}
-    />
-          </div>
-          <div className='col s12 m6'>
-               <DatePicker hintText="Portrait Dialog" />
-          </div>
-          <div className='col s12 m6'>
-            <div className='file-field input-field'>
-              <div className='btn'>
-                <span>Upload Files</span>
-                <input
-                  id='upload'
-                  type='file'
-                  multiple
-                  onChange={this.handleFilePath}
-                />
-              </div>
-              <div className='file-path-wrapper'>
-                <input
-                  value={fileValue}
-                  className='file-path validate'
-                  type='text'
-                  readOnly
-                />
-              </div>
+          <div className='row'>
+            <div className='col s12 flow-text'>
+              <h2>Please use this form to request services.</h2>
             </div>
-            </div>
-          <div className="col s12 m6">
-                    <Checkbox
-          label="Simple" style={styles.checkbox}
-        />
-                <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />
           </div>
-          <div className="col s12 m6">
-                    <Checkbox
-          label="Simple" style={styles.checkbox}
-        />
-                <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />        <Checkbox
-          label="Simple" style={styles.checkbox}
-        />
-          </div>
-        {/* 
-            <div className='col s12'>
-            <RaisedButton label="Submit" primary={true} />
-            <Checkbox
-            label="Simple" style={styles.checkbox}
-            />
-            </div> */}
-          <div className='col s12'>
-            <RaisedButton label='Submit' primary />
-            <Checkbox
-              label={
-                <span>
-                  I have read the{' '}
-                  <Link to='/planning-guide' style={{ fontWeight: 500 }}>
-                    Planning Guide
-                  </Link>
-                </span>
-              }
-              style={styles.checkbox}
-              inputStyle={{ width: '35px' }}
-            />
-          </div>
-        </div>
-      </div>
 
-      );
+          <div className='row'>
+            {this.singleLineFields.map((label, index) => SingleLineField(label, index))}
+            {this.multiLineFields.map((label, index) => MultiLineField(label, index))}
+
+            <div className='col s12 m6'>
+              <DatePicker hintText='Desired Completion Date' />
+            </div>
+            <div className='col s12 m6 file-upload'>
+              <div className='file-field input-filed'>
+                <div className='btn'>
+                  <span>Upload Files</span>
+                  <input
+                    id='upload'
+                    type='file'
+                    multiple
+                    onChange={this.handleFilePath}
+                  />
+                </div>
+                <div className='file-path-wrapper'>
+                  <input
+                    value={fileValue}
+                    className='file-path validate'
+                    type='text'
+                    readOnly
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className='col s12 m6'>
+              {this.leftCheckboxes.map((label, index) => CheckboxField(label, index))}
+            </div>
+            <div className='col s12 planning-guide-checkbox'>
+              <RaisedButton label='Submit' primary />
+              <Checkbox
+                label={
+                  <span>
+                  I have read the {' '}
+                  <Link
+                  to='/planning-guide'
+                  target='_blank'
+                  style={{fontWeight: 500}}
+                  >
+                  Planning Guide
+                  </Link>
+              </span>
+                      }
+                style={styles.checkbox}
+                inputStyle={{width: '35px'}}
+                />
+          </div>
+          </div>
+        </div>
+      )
     };
 }
 export default ServiceRequest;
